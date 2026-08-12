@@ -1,0 +1,19 @@
+<template>
+    <div class="custom-button slds-button" onclick={handleClick}>
+        <!-- Icon section -->
+        <lightning-icon 
+            icon-name={iconName} 
+            size="small" 
+            alternative-text={buttonLabel}
+            class="slds-button__icon slds-button__icon_left"
+        ></lightning-icon>
+
+        <!-- Text section -->
+        <span class="button-label">{buttonLabel}</span>
+
+        <!-- Badge/Counter section (optional, based on your image) -->
+        <template if:true={badgeText}>
+            <span class="badge slds-text-heading_small slds-m-left_x-small">{badgeText}</span>
+        </template>
+    </div>
+</template>

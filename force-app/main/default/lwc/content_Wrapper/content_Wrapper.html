@@ -1,0 +1,23 @@
+<template>
+
+    <!-- HOME -->
+    <template if:true={isHomePage}>
+        <c-home_page_wrapper></c-home_page_wrapper>
+    </template>
+
+    <!-- CART -->
+    <template if:true={isCartPage}>
+        <c-cart_page></c-cart_page>
+    </template>
+
+    <!-- LOGIN + SIGNUP -->
+    <template if:true={isLogInPage}>
+        <c-login_sign_up_wrapper></c-login_sign_up_wrapper>
+    </template>
+
+    <!-- ORDER -->
+    <template if:true={isOrderPage}>
+        <c-order_page order-id={orderId}></c-order_page>
+    </template>
+
+</template>

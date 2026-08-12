@@ -1,0 +1,59 @@
+<template>
+    <div class="login-wrapper">
+
+        <div class="login-box">
+
+            <h1 class="brand-title">ZipKart</h1>
+            <p class="welcome-text">Welcome Back 👋</p>
+
+            <!-- Username -->
+            <lightning-input
+                type="text"
+                label="Username"
+                name="username"
+                variant="label-stacked"
+                required
+                class="input-field"
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Password -->
+            <lightning-input
+                type="password"
+                label="Password"
+                name="password"
+                variant="label-stacked"
+                required
+                class="input-field"
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Login Button -->
+            <lightning-button
+                variant="brand"
+                label="Login"
+                onclick={handleLogin}
+                class="login-btn">
+            </lightning-button>
+
+            <div class="divider"></div>
+
+            <!-- Sign Up + Guest -->
+            <div class="action-links">
+                <lightning-button
+                    label="Create Account"
+                    variant="neutral"
+                    onclick={fireSignupEvent}>
+                </lightning-button>
+
+                <lightning-button
+                    label="Continue as Guest"
+                    variant="base"
+                    onclick={handleGuestLogin}>
+                </lightning-button>
+            </div>
+
+        </div>
+
+    </div>
+</template>

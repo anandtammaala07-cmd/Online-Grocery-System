@@ -1,0 +1,77 @@
+/* Background */
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f4c75, #3282b8);
+}
+
+/* Card */
+.signup-box {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 750px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.signup-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+.brand-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f4c75;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* Make full width on small screens */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Buttons */
+.button-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.signup-btn {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Error */
+.error-text {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Lightning color override */
+:host {
+    --lwc-brandAccessible: #0f4c75;
+}

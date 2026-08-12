@@ -1,0 +1,97 @@
+<template>
+    <div class="home-wrapper">
+
+        <template if:true={products}>
+            <lightning-layout 
+                horizontal-align="center" 
+                multiple-rows="true" 
+                pull-to-boundary="small"
+                class="product-layout">
+
+                <template for:each={products} for:item="product">
+
+                    <lightning-layout-item 
+                        key={product.Id} 
+                        size="12" 
+                        small-device-size="6" 
+                        medium-device-size="4" 
+                        large-device-size="3" 
+                        class="slds-p-around_small">
+
+                        <div class="product-card">
+
+                            <div class="product-info">
+
+                                <p class="product-name">{product.Name}</p>
+
+                                <p class="product-description">
+                                    {product.Description}
+                                </p>
+
+                                <p class="product-price">
+                                    ₹ {product.Price}
+                                </p>
+
+                            </div>
+
+                            <!-- Cart Section -->
+                            <div class="cart-section">
+
+                                <template if:true={product.isInCart}>
+                                    <div class="quantity-container">
+
+                                        <lightning-button 
+                                            label="-"
+                                            variant="neutral"
+                                            onclick={decreaseQuantity}
+                                            data-product-id={product.Id}>
+                                        </lightning-button>
+
+                                        <lightning-input
+                                            type="number"
+                                            value={product.quantity}
+                                            disabled
+                                            variant="label-hidden"
+                                            class="qty-input">
+                                        </lightning-input>
+
+                                        <lightning-button 
+                                            label="+"
+                                            variant="neutral"
+                                            onclick={increaseQuantity}
+                                            data-product-id={product.Id}>
+                                        </lightning-button>
+
+                                    </div>
+                                </template>
+
+                                <template if:false={product.isInCart}>
+                                    <lightning-button 
+                                        label="Add to Cart"
+                                        icon-name="utility:cart"
+                                        variant="brand"
+                                        class="add-btn"
+                                        onclick={addToCart}
+                                        data-product-id={product.Id}>
+                                    </lightning-button>
+                                </template>
+
+                            </div>
+
+                        </div>
+
+                    </lightning-layout-item>
+
+                </template>
+
+            </lightning-layout>
+        </template>
+
+        <template if:true={error}>
+            <div class="error-box">
+                An error occurred while fetching products: {error.body.message}
+            </div>
+        </template>
+
+    </div>
+</template>

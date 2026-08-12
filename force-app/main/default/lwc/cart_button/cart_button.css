@@ -1,0 +1,48 @@
+.custom-container{
+	color : black;
+}
+
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #d8dde6;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-button:hover {
+    background-color: #f3f3f3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-label {
+    margin-left: 0.5rem;
+    color: #0176d3;
+}
+
+.badge {
+    background-color: #ff9900;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+/* ```
+
+### How to Use This Component
+
+You can now use this custom button in your other LWC components. For example, to use it inside the `OverlayLayout` component, you could replace the `lightning-button` with your new component:
+
+```html
+<c-custom-icon-button
+    icon-name="utility:cart"
+    button-label="Show Product List"
+    badge-text="3"
+    onclick={handleShowModal}>
+</c-custom-icon-button> */

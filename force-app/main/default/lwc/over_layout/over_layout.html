@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Show Products" icon-name="standard:product">
+        <div class="slds-align_absolute-center slds-p-around_medium">
+            <lightning-button 
+                variant="brand" 
+                label="Show Product List" 
+                onclick={handleShowModal}
+            ></lightning-button>
+        </div>
+
+        <!-- Product List Modal -->
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseModal}>
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Products List</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <!-- Please add the <c-product-card-list> component here once it is created -->
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Close" onclick={handleCloseModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div classs="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        
+        <!-- Sign Up Modal -->
+        <template if:true={isSignUpModalOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseSignUpModal}>
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Sign Up</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <c-sign_up_page></c-sign_up_page>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Close" onclick={handleCloseSignUpModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </lightning-card>
+</template>

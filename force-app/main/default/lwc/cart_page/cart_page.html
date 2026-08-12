@@ -1,0 +1,88 @@
+<template>
+    <div class="cart-wrapper">
+
+        <div class="cart-card">
+
+            <h1 class="cart-title">🛒 Your Shopping Cart</h1>
+
+            <!-- Empty Cart -->
+            <template if:true={isCartEmpty}>
+                <div class="empty-cart">
+                    <p>Your cart is empty.</p>
+                </div>
+            </template>
+
+            <!-- Cart Items -->
+            <template if:false={isCartEmpty}>
+
+                <!-- Header Row -->
+                <div class="cart-header">
+                    <span>Product</span>
+                    <span class="center">Price</span>
+                    <span class="center">Quantity</span>
+                    <span class="right">Subtotal</span>
+                </div>
+
+                <!-- Items -->
+                <template for:each={formattedCartItems} for:item="item">
+                    <div key={item.Id} class="cart-item">
+
+                        <div class="item-name">
+                            {item.Name}
+                        </div>
+
+                        <div class="center">
+                            <lightning-formatted-number
+                                value={item.Price__c}
+                                format-style="currency"
+                                currency-code="INR">
+                            </lightning-formatted-number>
+                        </div>
+
+                        <div class="center">
+                            <input 
+                                type="number" 
+                                value={item.quantity} 
+                                class="quantity-input"/>
+                        </div>
+
+                        <div class="right subtotal">
+                            <lightning-formatted-number
+                                value={item.totalPrice}
+                                format-style="currency"
+                                currency-code="INR">
+                            </lightning-formatted-number>
+                        </div>
+
+                    </div>
+                </template>
+
+                <!-- Total Section -->
+                <div class="cart-total">
+                    <span>Total Amount:</span>
+                    <span class="total-value">
+                        <lightning-formatted-number
+                            value={cartTotalAmount}
+                            format-style="currency"
+                            currency-code="INR">
+                        </lightning-formatted-number>
+                    </span>
+                </div>
+
+                <!-- Place Order -->
+                <div class="order-section">
+                    <lightning-button 
+                        label="Place Order" 
+                        variant="brand" 
+                        onclick={handlePlaceOrder}
+                        disabled={isCartEmpty}
+                        class="order-btn">
+                    </lightning-button>
+                </div>
+
+            </template>
+
+        </div>
+
+    </div>
+</template>

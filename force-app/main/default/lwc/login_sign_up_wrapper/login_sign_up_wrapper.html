@@ -1,0 +1,11 @@
+<template>
+
+    <template if:true={isLogin}>
+        <c-login_page_wrapper onnavigate={handleNavigation}></c-login_page_wrapper>
+    </template>
+
+    <template if:true={isSignup}>
+        <c-sign_up_page_wrapper onnavigate={handleNavigation}></c-sign_up_page_wrapper>
+    </template>
+
+</template>
